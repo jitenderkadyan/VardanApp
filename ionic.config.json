@@ -1,5 +1,8 @@
 {
   "name": "dailyMurli",
-  "integrations": {},
-  "type": "angular"
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular",
+  "id": "a7724998"
 }

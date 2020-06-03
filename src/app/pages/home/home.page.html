@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="danger">
+    <ion-title>
+      BK VIJAY (GYANMOTI)
+    </ion-title>
+  </ion-toolbar>
+  <ion-toolbar class="ion-text-center" color="dark">
+    <b>मुरली, क्लासेज, कॉमेंट्री व 7Days कोर्स उपलब्ध है</b>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <iframe width="100%" height="180" [src]="this.crud.cleanLink(latestMurli.embedLink)" frameborder="0"
+    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <ion-item routerLink="/tabs/murli">
+      <ion-icon name="calendar" slot="start"></ion-icon>
+      <ion-label>Purani Murli</ion-label>
+    </ion-item>
+  </ion-card>
+
+  <ion-card>
+    <iframe width="100%" height="180" [src]="this.crud.cleanLink(latestCommentary.embedLink)" frameborder="0"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    <ion-item routerLink="/tabs/commentary">
+      <ion-icon name="calendar" slot="start"></ion-icon>
+      <ion-label>Purani Commentary</ion-label>
+    </ion-item>
+  </ion-card>
+
+</ion-content>
