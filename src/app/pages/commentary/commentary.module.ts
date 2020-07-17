@@ -7,9 +7,11 @@ import { IonicModule } from '@ionic/angular';
 import { CommentaryPageRoutingModule } from './commentary-routing.module';
 
 import { CommentaryPage } from './commentary.page';
+import { ComponentsModule } from '../../components/components.module';
 
 @NgModule({
   imports: [
+    ComponentsModule,
     CommonModule,
     FormsModule,
     IonicModule,

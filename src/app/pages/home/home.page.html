@@ -1,32 +1,76 @@
-<ion-header [translucent]="true">
-  <ion-toolbar color="danger">
-    <ion-title>
-      BK VIJAY (GYANMOTI)
-    </ion-title>
-  </ion-toolbar>
-  <ion-toolbar class="ion-text-center" color="dark">
-    <b>मुरली, क्लासेज, कॉमेंट्री व 7Days कोर्स उपलब्ध है</b>
-  </ion-toolbar>
-</ion-header>
+<app-header title="Today's Latest Activity"></app-header>
 
 <ion-content>
-  <ion-card>
-    <iframe width="100%" height="180" [src]="this.crud.cleanLink(latestMurli.embedLink)" frameborder="0"
-    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <ion-item routerLink="/tabs/murli">
-      <ion-icon name="calendar" slot="start"></ion-icon>
-      <ion-label>Purani Murli</ion-label>
-    </ion-item>
+  <ion-card *ngFor="let latestMurli of latestMurli | async">
+    <ion-grid>
+      <ion-row (click)="presentModal('Aaj ki Murli',latestMurli)">
+        <ion-col size="6">
+          <img [src]="'http://img.youtube.com/vi/' + latestMurli.videoId + '/0.jpg'">
+        </ion-col>
+        <ion-col size="6">
+          <h2>Aaj Ki Murli</h2>
+          <hr style="background-color: #ccc;">
+          <h6>Click to watch now</h6>
+          <small>{{latestMurli.date.toDate() | date}}</small>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-card>
 
-  <ion-card>
-    <iframe width="100%" height="180" [src]="this.crud.cleanLink(latestCommentary.embedLink)" frameborder="0"
-      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-    <ion-item routerLink="/tabs/commentary">
-      <ion-icon name="calendar" slot="start"></ion-icon>
-      <ion-label>Purani Commentary</ion-label>
-    </ion-item>
+  <ion-card *ngFor="let latestCommentary of latestCommentary | async">
+    <ion-grid>
+      <ion-row (click)="presentModal('Aaj ki Commentary',latestCommentary)">
+        <ion-col size="6">
+          <img [src]="'http://img.youtube.com/vi/' + latestCommentary.videoId + '/0.jpg'">
+        </ion-col>
+        <ion-col size="6">
+          <h2>Commentary</h2>
+          <hr style="background-color: #ccc;">
+          <h6>Click to watch now</h6>
+          <small>{{latestCommentary.date.toDate() | date}}</small>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-card>
+
+
+  <ion-card *ngFor="let latestClass of latestClass | async">
+    <ion-grid>
+      <ion-row (click)="presentModal(latestClass.title,latestClass)">
+        <ion-col size="6">
+          <img [src]="'http://img.youtube.com/vi/' + latestClass.videoId + '/0.jpg'">
+        </ion-col>
+        <ion-col size="6">
+          <h2>{{latestClass.title}}</h2>
+          <hr style="background-color: #ccc;">
+          <h6>Click to watch now</h6>
+          <small>{{latestClass.date.toDate() | date}}</small>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6">
+        <ion-card routerLink="/tabs/text">
+          <ion-card-header class="ion-text-center">
+            <ion-icon name="document-text" style="font-size: 3rem;"></ion-icon>
+            <ion-card-title>Audio</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="6">
+        <ion-card routerLink="/tabs/text">
+          <ion-card-header class="ion-text-center">
+            <ion-icon name="chatbubble-ellipses" style="font-size: 3rem;"></ion-icon>
+            <ion-card-title>Text</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
 
 </ion-content>

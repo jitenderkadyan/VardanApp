@@ -1,0 +1,35 @@
+<ion-header (click)="dismiss()">
+  <ion-toolbar>
+    <ion-title>{{title}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="data.embedLink">
+  <iframe width="100%" height="200" [src]="this.crud.cleanLink(data.embedLink + '?autoplay=1')" frameborder="0"
+  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <hr style="background-color: #ccc;">
+  <div class="ion-text-center">
+    <h1 class="ion-text-uppercase">{{title}}</h1>
+    <h5>{{data.date.toDate() | date}}</h5>
+  </div>
+  <ion-button color="danger" (click)="dismiss()" class="exit_btn">Exit</ion-button>
+</ion-content>
+
+<ion-content *ngIf="data.body">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>{{data.date.toDate() | date:'mediumDate'}}</ion-card-subtitle>
+      <ion-card-title>Aaj Ki Murli</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{data.body}}</p>
+    </ion-card-content>
+  </ion-card>
+  <ion-button color="danger" (click)="dismiss()" class="exit_btn">Exit</ion-button>
+
+</ion-content>

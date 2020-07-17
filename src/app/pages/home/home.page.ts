@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudService } from '../../core/crud.service';
-
-interface LatestObj {
-  embedLink: string;
-}
+import { ModalController } from '@ionic/angular';
+import { ModalPage } from '../../modal/modal.page';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -12,18 +11,31 @@ interface LatestObj {
 })
 export class HomePage implements OnInit {
   
-  latestMurli: any = {
-    embedLink: ''
-  };
-  latestCommentary: any = {
-    embedLink: ''
-  };
+  latestMurli: Observable<any>;
+  latestCommentary: Observable<any>;
+  latestClass: Observable<any>;
 
-  constructor(public crud: CrudService) { }
+  constructor(
+    public crud: CrudService,
+    public modalController: ModalController
+    ) { }
 
   ngOnInit() {
-    this.crud.latestRead('murli').subscribe(ref => this.latestMurli = ref[0])
-    this.crud.latestRead('commentary').subscribe(ref => this.latestCommentary = ref[0])
+    this.latestMurli = this.crud.latestRead('murli')
+    this.latestCommentary = this.crud.latestRead('commentary')
+    this.latestClass = this.crud.latestRead('classes')
+  }
+
+  async presentModal(title,data) {
+    const modal = await this.modalController.create({
+      component: ModalPage,
+      componentProps: {
+        'title': title,
+        'data': data
+      },
+      cssClass: 'my-custom-modal-class'
+    });
+    return await modal.present();
   }
 
 }

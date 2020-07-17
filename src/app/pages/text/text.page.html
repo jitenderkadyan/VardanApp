@@ -1,0 +1,19 @@
+<app-header title="Text Section"></app-header>
+
+<ion-content>
+  <ion-card *ngFor="let text of allText | async" (click)="presentModal('Aaj Ki Murli',text)">
+    <ion-card-header>
+      <ion-card-subtitle>AAJ KI MURLI</ion-card-subtitle>
+      <ion-card-title>{{text.date.toDate() | date:'mediumDate'}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-button color="success">Read</ion-button>
+    </ion-card-content>
+   </ion-card>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+</ion-content>

@@ -7,9 +7,11 @@ import { IonicModule } from '@ionic/angular';
 import { MurliPageRoutingModule } from './murli-routing.module';
 
 import { MurliPage } from './murli.page';
+import { ComponentsModule } from '../../components/components.module';
 
 @NgModule({
   imports: [
+    ComponentsModule,
     CommonModule,
     FormsModule,
     IonicModule,
