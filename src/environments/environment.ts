@@ -5,14 +5,14 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyAHcEJulGVsR1wox9WNRZES6wVQKqMpy_Y",
-    authDomain: "omshantiadmin.firebaseapp.com",
-    databaseURL: "https://omshantiadmin.firebaseio.com",
-    projectId: "omshantiadmin",
-    storageBucket: "omshantiadmin.appspot.com",
-    messagingSenderId: "799681386217",
-    appId: "1:799681386217:web:57aa98592a5e79bde44278",
-    measurementId: "G-BY9ZBSVBT5"
+    apiKey: "AIzaSyA47NtFrhu43jBeHkCuccSFSWxx17E-FT0",
+    authDomain: "vardanadmin.firebaseapp.com",
+    databaseURL: "https://vardanadmin.firebaseio.com",
+    projectId: "vardanadmin",
+    storageBucket: "vardanadmin.appspot.com",
+    messagingSenderId: "844428479382",
+    appId: "1:844428479382:web:58c98124ee883e93cf6bb7",
+    measurementId: "G-7JKNY8JN6S"
   }
 };
 

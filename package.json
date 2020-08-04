@@ -1,8 +1,8 @@
 {
-  "name": "gyan_moti",
+  "name": "vardan",
   "version": "1.0.0",
-  "author": "Nikhil Kadyan",
-  "homepage": "https://nikhilkadyan.com/",
+  "author": "Jitender Kadyan",
+  "homepage": "https://gyanmoti.com/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
